@@ -7,16 +7,20 @@ public class WomanSc : MonoBehaviour
 
     private Animator anim;
     
+    private Vector3 ipos;
+    
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        ipos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float x = Mathf.Sin(Time.time) * 1.0f;
+        transform.position = new Vector3(ipos.x + x, transform.position.y, transform.position.z);
     }
 
     void OnTriggerEnter(Collider other)
