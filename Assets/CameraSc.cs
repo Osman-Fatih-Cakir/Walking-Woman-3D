@@ -12,7 +12,7 @@ public class CameraSc : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Move camera at constant speed
         moveCamera(Time.deltaTime);

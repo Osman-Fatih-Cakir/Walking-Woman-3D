@@ -1,8 +1,9 @@
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class LevelHandlerSc : MonoBehaviour
 {
+    public GameObject[] LEVELS;
     public GameObject cam;
     public int Point = 0;
 
