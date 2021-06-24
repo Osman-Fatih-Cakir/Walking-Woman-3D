@@ -318,7 +318,7 @@ MonoBehaviour:
   cam: {fileID: 963194225}
   PlayerObj: {fileID: 1922431393}
   WomanObj: {fileID: 1474213543}
-  Point: -1000
+  Point: 0
   LevelCount: 8
 --- !u!1 &245839483
 GameObject:
@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LHObject: {fileID: 106065849}
-  CameraSpeed: 30
+  CameraSpeed: 6.5
 --- !u!1 &976786456
 GameObject:
   m_ObjectHideFlags: 0
