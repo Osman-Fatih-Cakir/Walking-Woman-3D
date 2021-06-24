@@ -46,6 +46,7 @@ public class WomanSc : MonoBehaviour
         else if (other.gameObject.layer == 10) // Positive object
         {
             LHObject.GetComponent<LevelHandlerSc>().Point += 100;
+            anim.SetTrigger("happy");
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
         }
         else if (other.gameObject.layer == 11) // Finish

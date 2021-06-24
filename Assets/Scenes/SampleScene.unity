@@ -318,7 +318,7 @@ MonoBehaviour:
   cam: {fileID: 963194225}
   PlayerObj: {fileID: 1922431393}
   WomanObj: {fileID: 1474213543}
-  Point: 0
+  Point: -1000
   LevelCount: 8
 --- !u!1 &245839483
 GameObject:
@@ -891,6 +891,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 4d0174dfa757cda4c95ff1a4627f779b, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 4d0174dfa757cda4c95ff1a4627f779b, type: 3}
     - target: {fileID: 5866666021909216657, guid: 4d0174dfa757cda4c95ff1a4627f779b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -1691,7 +1695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LHObject: {fileID: 106065849}
-  CameraSpeed: 6.5
+  CameraSpeed: 30
 --- !u!1 &976786456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,7 +3058,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97151abddd582614a92ccdbb4ee6989f, type: 2}
+  - {fileID: 2100000, guid: 1b1118293e1e2604aa2d4e8857dff6c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
