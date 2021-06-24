@@ -4,6 +4,7 @@ using UnityEngine;
 public class WomanSc : MonoBehaviour
 {
     public GameObject LHObject;
+    public GameObject ParticlesObj;
 
     [HideInInspector]
     public Animator anim;
@@ -42,12 +43,14 @@ public class WomanSc : MonoBehaviour
         {
             LHObject.GetComponent<LevelHandlerSc>().Point -= 75;
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
+
         }
         else if (other.gameObject.layer == 10) // Positive object
         {
             LHObject.GetComponent<LevelHandlerSc>().Point += 100;
-            anim.SetTrigger("happy");
+            anim.SetTrigger("happy"); // Happy animation
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
+            StartCoroutine(Explode(transform.position));// Particle animation
         }
         else if (other.gameObject.layer == 11) // Finish
         {
@@ -75,5 +78,14 @@ public class WomanSc : MonoBehaviour
             yield return null;
         }
         Destroy(obj.gameObject);
+    }
+
+    IEnumerator Explode(Vector3 pos)
+    {
+        GameObject firework = Instantiate(ParticlesObj, pos, Quaternion.identity);
+        firework.transform.parent = transform;
+        firework.GetComponent<ParticleSystem>().Play();
+        yield return new WaitForSeconds(2);
+        Destroy(firework);
     }
 }

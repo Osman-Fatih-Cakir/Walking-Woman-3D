@@ -2260,7 +2260,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97151abddd582614a92ccdbb4ee6989f, type: 2}
+  - {fileID: 2100000, guid: 1d04bd6d4c5c06546b79aa70585d9054, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2471,6 +2471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LHObject: {fileID: 106065849}
+  ParticlesObj: {fileID: 7589650505342941124, guid: f3c1358bafcee5c44be10fc970d76f32, type: 3}
   anim: {fileID: 0}
 --- !u!4 &1474213545 stripped
 Transform:
