@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CameraSc : MonoBehaviour
 {
+    public GameObject LHObject;
     public float CameraSpeed = 1.0f;
 
     // Start is called before the first frame update
@@ -14,8 +15,12 @@ public class CameraSc : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Move camera at constant speed
-        moveCamera(Time.deltaTime);
+        if (LHObject.GetComponent<LevelHandlerSc>().GameOn 
+            && !LHObject.GetComponent<LevelHandlerSc>().GameOver)
+        {
+            // Move camera at constant speed
+            moveCamera(Time.deltaTime);
+        }
     }
 
     void moveCamera(float delta)

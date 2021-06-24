@@ -5,9 +5,11 @@ public class WomanSc : MonoBehaviour
 {
     public GameObject LHObject;
 
-    private Animator anim;
+    [HideInInspector]
+    public Animator anim;
     
     private Vector3 ipos;
+    private float sinx;
     
     // Start is called before the first frame update
     void Start()
@@ -19,8 +21,18 @@ public class WomanSc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Mathf.Sin(Time.time) * 1.0f;
-        transform.position = new Vector3(ipos.x + x, transform.position.y, transform.position.z);
+        if (LHObject.GetComponent<LevelHandlerSc>().GameOn 
+            && !LHObject.GetComponent<LevelHandlerSc>().GameOver) // If the game is on, the game is playable
+        {
+            sinx = Mathf.Sin(Time.time) * 1.0f;
+            transform.position = new Vector3(ipos.x + sinx, transform.position.y, transform.position.z); // Move woman around x axis
+        }
+
+    }
+
+    public void StartAgain()
+    {
+        anim.SetTrigger("run");
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,14 +50,16 @@ public class WomanSc : MonoBehaviour
         }
         else if (other.gameObject.layer == 11) // Finish
         {
+            LHObject.GetComponent<LevelHandlerSc>().EndLevel();
+
             Debug.Log("Total Time: " + Time.timeSinceLevelLoad);
             if (LHObject.GetComponent<LevelHandlerSc>().Point > 0) // Win 
             {
-                anim.SetTrigger("finish_pos");
+                anim.SetTrigger("win");
             }
             else // Fail
             {
-                anim.SetTrigger("finish_neg");
+                anim.SetTrigger("lose");
             }
             LHObject.GetComponent<LevelHandlerSc>().EndLevel();
         }

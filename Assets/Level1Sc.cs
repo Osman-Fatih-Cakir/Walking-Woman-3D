@@ -18,7 +18,7 @@ public class Level1Sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float constant = 1.2f * (Mathf.Sin(Time.time*5));// + Mathf.Cos(Time.time));
+        float constant = Mathf.Sin(Time.time*1);
         float x1 = constant * 1f;
         float x2 = constant * (-1f);
         float x3 = constant * 1f;
