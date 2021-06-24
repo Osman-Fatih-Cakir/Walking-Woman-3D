@@ -1,4 +1,4 @@
-
+using System.Collections;
 using UnityEngine;
 
 public class WomanSc : MonoBehaviour
@@ -41,12 +41,12 @@ public class WomanSc : MonoBehaviour
         if (other.gameObject.layer == 9) // Negative object
         {
             LHObject.GetComponent<LevelHandlerSc>().Point -= 75;
-            Destroy(other.gameObject);
+            StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
         }
         else if (other.gameObject.layer == 10) // Positive object
         {
             LHObject.GetComponent<LevelHandlerSc>().Point += 100;
-            Destroy(other.gameObject);
+            StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
         }
         else if (other.gameObject.layer == 11) // Finish
         {
@@ -64,5 +64,15 @@ public class WomanSc : MonoBehaviour
             LHObject.GetComponent<LevelHandlerSc>().EndLevel();
         }
         Debug.Log("POINT: " + LHObject.GetComponent<LevelHandlerSc>().Point);
+    }
+
+    IEnumerator ShrinkObject(GameObject obj, float time, float speed)
+    {
+        for (float cur = 0.0f; cur <= time; cur += (1.0f/60.0f))
+        {
+            obj.transform.localScale -= new Vector3(speed, speed, speed);
+            yield return null;
+        }
+        Destroy(obj.gameObject);
     }
 }
