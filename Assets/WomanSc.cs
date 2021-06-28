@@ -50,7 +50,6 @@ public class WomanSc : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OLD: " + LHObject.GetComponent<LevelHandlerSc>().Point);
         if (other.gameObject.layer == 9) // Negative object
         {
             LHObject.GetComponent<LevelHandlerSc>().Point -= 75;

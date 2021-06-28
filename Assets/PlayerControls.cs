@@ -57,7 +57,7 @@ public class PlayerControls : MonoBehaviour
 
             Vector3 force = new Vector3(deltaPos.x, 0, deltaPos.y) * thrust;
             PlayerRigidbody.AddForce(force);
-            //////////////
+
             float cc = 20.0f; float cc_n = cc * (-1.0f);
             if (PlayerRigidbody.velocity.x >= cc) PlayerRigidbody.velocity = new Vector3(cc, PlayerRigidbody.velocity.y, PlayerRigidbody.velocity.z);
             if (PlayerRigidbody.velocity.y >= cc) PlayerRigidbody.velocity = new Vector3(PlayerRigidbody.velocity.x, cc, PlayerRigidbody.velocity.z);
@@ -65,7 +65,7 @@ public class PlayerControls : MonoBehaviour
             if (PlayerRigidbody.velocity.x <= cc_n) PlayerRigidbody.velocity = new Vector3(cc_n, PlayerRigidbody.velocity.y, PlayerRigidbody.velocity.z);
             if (PlayerRigidbody.velocity.y <= cc_n) PlayerRigidbody.velocity = new Vector3(PlayerRigidbody.velocity.x, cc_n, PlayerRigidbody.velocity.z);
             if (PlayerRigidbody.velocity.z <= cc_n) PlayerRigidbody.velocity = new Vector3(PlayerRigidbody.velocity.x, PlayerRigidbody.velocity.y, cc_n);
-            //////////////
+     
             PlayerRigidbody.velocity *= SlowDownRatePressed;
         }
         else
@@ -73,7 +73,6 @@ public class PlayerControls : MonoBehaviour
             lastMousePos = Vector2.zero;
             PlayerRigidbody.velocity *= SlowDownRateUp;
         }
-
         transform.position += transform.forward * PlayerDefaultSpeed * Time.deltaTime;
     }
 }

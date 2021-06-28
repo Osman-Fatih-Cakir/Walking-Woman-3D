@@ -307,18 +307,11 @@ MonoBehaviour:
   WinCanvasObj: {fileID: 1284680633}
   FailCanvasObj: {fileID: 341212190}
   LEVELS:
-  - {fileID: 4084278635460112718, guid: 77afd3afa15c4494d9edea3a7c1c713b, type: 3}
-  - {fileID: 4084278635460112718, guid: 77afd3afa15c4494d9edea3a7c1c713b, type: 3}
-  - {fileID: 6778382601496946195, guid: f529e750b64334b40b54066e6c3148fa, type: 3}
-  - {fileID: 6778382601496946195, guid: f529e750b64334b40b54066e6c3148fa, type: 3}
-  - {fileID: 6778382601496946195, guid: f529e750b64334b40b54066e6c3148fa, type: 3}
-  - {fileID: 5898741605114408525, guid: 7aa2d18234b50dd4c80b958a0c3f7432, type: 3}
-  - {fileID: 5898741605114408525, guid: 7aa2d18234b50dd4c80b958a0c3f7432, type: 3}
   - {fileID: 5898741605114408525, guid: 7aa2d18234b50dd4c80b958a0c3f7432, type: 3}
   cam: {fileID: 963194225}
   PlayerObj: {fileID: 1922431393}
   WomanObj: {fileID: 1474213543}
-  Point: -1000
+  Point: 0
   LevelCount: 8
 --- !u!1 &245839483
 GameObject:
@@ -1083,7 +1076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373838258}
   m_LocalRotation: {x: -0.40982744, y: 0, z: 0, w: 0.9121631}
-  m_LocalPosition: {x: 0.19, y: -5.89, z: 7.89}
+  m_LocalPosition: {x: 0.19, y: -10.75, z: 3.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 963194228}
@@ -1689,7 +1682,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.40999752, y: -0.005596783, z: -0.013521487, w: 0.91196924}
+  m_LocalRotation: {x: 0.40977472, y: -0.01463008, z: 0.006573176, w: 0.9120458}
   m_LocalPosition: {x: 0, y: 10, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1697,7 +1690,7 @@ Transform:
   - {fileID: 373838259}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 48.388, y: -1.838, z: -2.525}
+  m_LocalEulerAnglesHint: {x: 48.388, y: -1.838, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2048,7 +2041,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.01
 --- !u!222 &1128580898
 CanvasRenderer:
   m_ObjectHideFlags: 0

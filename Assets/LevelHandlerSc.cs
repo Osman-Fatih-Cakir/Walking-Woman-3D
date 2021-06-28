@@ -58,9 +58,9 @@ public class LevelHandlerSc : MonoBehaviour
         reshuffle(LEVELS);
         for (int i = 0; i < LevelCount; i++)
         {
-            GameObject temp = Instantiate(LEVELS[i], Level_Positions[i], Quaternion.identity);
+            int random = Random.Range(0, LEVELS.Length);
+            GameObject temp = Instantiate(LEVELS[random], Level_Positions[i], Quaternion.identity);
             Current_Levels.Add(temp);
-            Debug.Log(temp.name);
         }
 
         // Set camera and player positions
@@ -93,7 +93,8 @@ public class LevelHandlerSc : MonoBehaviour
         // Initialize the levels (The levels will not be shuffled)
         for (int i = 0; i < LevelCount; i++)
         {
-            GameObject temp = Instantiate(LEVELS[i], Level_Positions[i], Quaternion.identity);
+            int random = Random.Range(0, LEVELS.Length);
+            GameObject temp = Instantiate(LEVELS[random], Level_Positions[i], Quaternion.identity);
             Current_Levels.Add(temp);
         }
         
