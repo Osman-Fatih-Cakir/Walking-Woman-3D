@@ -8,8 +8,13 @@ public class WomanSc : MonoBehaviour
 
     [HideInInspector]
     public Animator anim;
+    public Vector3 endPos;
+    public Quaternion endRot;
+    public Vector3 endsca;
     
     private Vector3 ipos;
+    private Quaternion irot;
+    private Vector3 isca;
     private float sinx;
     
     // Start is called before the first frame update
@@ -17,6 +22,8 @@ public class WomanSc : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         ipos = transform.position;
+        irot = transform.rotation;
+        isca = transform.localScale;
     }
 
     // Update is called once per frame
@@ -33,6 +40,11 @@ public class WomanSc : MonoBehaviour
 
     public void StartAgain()
     {
+        // Relocate the woman
+        transform.position = ipos;
+        transform.rotation = irot;
+        transform.localScale = isca;
+
         anim.SetTrigger("run");
     }
 
@@ -54,18 +66,7 @@ public class WomanSc : MonoBehaviour
         }
         else if (other.gameObject.layer == 11) // Finish
         {
-            LHObject.GetComponent<LevelHandlerSc>().EndLevel();
-
-            Debug.Log("Total Time: " + Time.timeSinceLevelLoad);
-            if (LHObject.GetComponent<LevelHandlerSc>().Point > 0) // Win 
-            {
-                anim.SetTrigger("win");
-            }
-            else // Fail
-            {
-                anim.SetTrigger("lose");
-            }
-            LHObject.GetComponent<LevelHandlerSc>().EndLevel();
+            finishLevel();
         }
         Debug.Log("POINT: " + LHObject.GetComponent<LevelHandlerSc>().Point);
     }
@@ -87,5 +88,27 @@ public class WomanSc : MonoBehaviour
         firework.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(2);
         Destroy(firework);
+    }
+
+    // End level
+    void finishLevel()
+    {
+        // Relocate the woman
+        transform.localPosition = endPos;
+        transform.localRotation = endRot;
+        transform.localScale = endsca;
+
+        Debug.Log("Total Time: " + Time.timeSinceLevelLoad);
+
+        // Start the animation
+        if (LHObject.GetComponent<LevelHandlerSc>().Point > 0) // Win 
+        {
+            anim.SetTrigger("win");
+        }
+        else // Fail
+        {
+            anim.SetTrigger("lose");
+        }
+        LHObject.GetComponent<LevelHandlerSc>().EndLevel();
     }
 }

@@ -60,6 +60,7 @@ public class LevelHandlerSc : MonoBehaviour
         {
             GameObject temp = Instantiate(LEVELS[i], Level_Positions[i], Quaternion.identity);
             Current_Levels.Add(temp);
+            Debug.Log(temp.name);
         }
 
         // Set camera and player positions
@@ -116,6 +117,7 @@ public class LevelHandlerSc : MonoBehaviour
     public void EndLevel()
     {
         GameOver = true;
+
         // Open Game Over canvas
         if (Point >= 0) // Win canvas
         {
@@ -126,7 +128,7 @@ public class LevelHandlerSc : MonoBehaviour
             GameFail = true;
             FailCanvasObj.SetActive(true);
         }
-    } 
+    }
 
     void reshuffle(GameObject[] texts)
         {
