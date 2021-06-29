@@ -11,6 +11,7 @@ public class LevelHandlerSc : MonoBehaviour
     public GameObject StartCanvasObj;
     public GameObject WinCanvasObj;
     public GameObject FailCanvasObj;
+    public GameObject GameplayCanvasObj;
     public GameObject[] LEVELS;
     public GameObject cam;
     public GameObject PlayerObj;
@@ -34,7 +35,7 @@ public class LevelHandlerSc : MonoBehaviour
         // Take level positions
         for (int i = 0; i < LevelCount; i++)
         {
-            Level_Positions.Add(new Vector3(0, 0, i*20));//LEVELS[i].transform.position);
+            Level_Positions.Add(new Vector3(0, 0.1f, i*20));//LEVELS[i].transform.position);
         }
     }
 
@@ -75,6 +76,7 @@ public class LevelHandlerSc : MonoBehaviour
         StartCanvasObj.SetActive(false);
         WinCanvasObj.SetActive(false);
         FailCanvasObj.SetActive(false);
+        GameplayCanvasObj.SetActive(true);
 
         GameFail = false;
 
@@ -110,6 +112,7 @@ public class LevelHandlerSc : MonoBehaviour
         StartCanvasObj.SetActive(false);
         WinCanvasObj.SetActive(false);
         FailCanvasObj.SetActive(false);
+        GameplayCanvasObj.SetActive(true);
 
         GameFail = false;
     }
@@ -118,7 +121,7 @@ public class LevelHandlerSc : MonoBehaviour
     public void EndLevel()
     {
         GameOver = true;
-
+        GameplayCanvasObj.SetActive(false);
         // Open Game Over canvas
         if (Point >= 0) // Win canvas
         {

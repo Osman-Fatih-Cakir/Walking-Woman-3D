@@ -46,6 +46,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: -1795026725835279146, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1322427251790553386, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
       propertyPath: m_Name
       value: Bad (3)
@@ -128,6 +132,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: -1795026725835279146, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1322427251790553386, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
       propertyPath: m_Name
       value: Bad
@@ -210,6 +218,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: -1795026725835279146, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1322427251790553386, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
       propertyPath: m_Name
       value: Bad (4)
@@ -292,6 +304,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: -1795026725835279146, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1322427251790553386, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
       propertyPath: m_Name
       value: Bad (6)
@@ -374,6 +390,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: 244921477802794925, guid: c0823a25a7a99e3429aec23d6b1a9f33, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 972205731484314058, guid: c0823a25a7a99e3429aec23d6b1a9f33, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -444,6 +464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: 244921477802794925, guid: c0823a25a7a99e3429aec23d6b1a9f33, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 244921477802794925, guid: c0823a25a7a99e3429aec23d6b1a9f33, type: 3}
       propertyPath: m_Interpolate
       value: 1
@@ -534,6 +558,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: -1795026725835279146, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1322427251790553386, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
       propertyPath: m_Name
       value: Bad (1)
@@ -616,6 +644,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5898741605114408527}
     m_Modifications:
+    - target: {fileID: -1795026725835279146, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1322427251790553386, guid: 225351824dd8e6a4b87af2cf82cbe352, type: 3}
       propertyPath: m_Name
       value: Bad (5)
@@ -701,6 +733,10 @@ PrefabInstance:
     - target: {fileID: 574074100876691097, guid: 82e2a0ba3d48679458fb221421b01367, type: 3}
       propertyPath: m_Mass
       value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 574074100876691097, guid: 82e2a0ba3d48679458fb221421b01367, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 574074100876691108, guid: 82e2a0ba3d48679458fb221421b01367, type: 3}
       propertyPath: m_Size.y
