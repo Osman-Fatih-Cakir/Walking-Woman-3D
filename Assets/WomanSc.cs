@@ -11,7 +11,8 @@ public class WomanSc : MonoBehaviour
     public Vector3 endPos;
     public Quaternion endRot;
     public Vector3 endsca;
-    
+
+    private bool isAnimDone = true;    
     private Vector3 ipos;
     private Quaternion irot;
     private Vector3 isca;
@@ -35,7 +36,6 @@ public class WomanSc : MonoBehaviour
             sinx = Mathf.Sin(Time.time) * 1.0f;
             transform.position = new Vector3(ipos.x + sinx, transform.position.y, transform.position.z); // Move woman around x axis
         }
-
     }
 
     public void StartAgain()
@@ -58,8 +58,12 @@ public class WomanSc : MonoBehaviour
         }
         else if (other.gameObject.layer == 10) // Positive object
         {
+            if (isAnimDone)
+            {
+                StartCoroutine(WaitForAnim(1.8f));
+                anim.SetTrigger("happy"); // Happy animation
+            }
             LHObject.GetComponent<LevelHandlerSc>().Point += 100;
-            anim.SetTrigger("happy"); // Happy animation
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
             StartCoroutine(Explode(transform.position));// Particle animation
         }
@@ -87,6 +91,13 @@ public class WomanSc : MonoBehaviour
         firework.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(2);
         Destroy(firework);
+    }
+
+    IEnumerator WaitForAnim(float time)
+    {
+        isAnimDone = false;
+        yield return new WaitForSeconds(time);
+        isAnimDone = true;
     }
 
     // End level
