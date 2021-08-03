@@ -13,6 +13,8 @@ public class LevelHandlerSc : MonoBehaviour
     public GameObject FailCanvasObj;
     public GameObject GameplayCanvasObj;
     public GameObject[] LEVELS;
+    public GameObject[] HealtyFoods;
+    public GameObject[] UnhealtyFoods;
     public GameObject cam;
     public GameObject PlayerObj;
     public GameObject WomanObj;
@@ -61,6 +63,7 @@ public class LevelHandlerSc : MonoBehaviour
         {
             int random = Random.Range(0, LEVELS.Length);
             GameObject temp = Instantiate(LEVELS[random], Level_Positions[i], Quaternion.identity);
+            set_level_assets(temp);
             Current_Levels.Add(temp);
         }
 
@@ -80,6 +83,31 @@ public class LevelHandlerSc : MonoBehaviour
 
         GameFail = false;
 
+    }
+
+    // Set level assets
+    private void set_level_assets(GameObject obj)
+    {
+        for (int i = 0; i < obj.transform.childCount; i++)
+        {
+            GameObject child = obj.transform.GetChild(i).gameObject;
+            if (child.layer == 10) // Positive object
+            {
+                int random = Random.Range(0, HealtyFoods.Length);
+                GameObject temp = Instantiate(HealtyFoods[random]);
+                temp.transform.parent = child.transform;
+                temp.transform.localPosition = new Vector3(0, 0, 0);
+                temp.transform.localScale = new Vector3(2.5F, 2.5F, 2.5F);
+            }
+            else if (child.layer == 9) // Negative object
+            {
+                int random = Random.Range(0, UnhealtyFoods.Length);
+                GameObject temp = Instantiate(UnhealtyFoods[random]);
+                temp.transform.parent = child.transform;
+                temp.transform.localPosition = new Vector3(0, 0, 0);
+                temp.transform.localScale = new Vector3(3.5F, 3.5F, 3.5F);
+            }
+        }
     }
 
     // Restart the level
