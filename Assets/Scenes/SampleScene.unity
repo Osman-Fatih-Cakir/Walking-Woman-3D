@@ -3700,8 +3700,5 @@ MonoBehaviour:
   LHObject: {fileID: 106065849}
   CameraObj: {fileID: 963194225}
   PlayerObject: {fileID: 1922431393}
-  thrust: 80
-  PlayerDefaultSpeed: 3
-  SlowDownRateUp: 0
-  SlowDownRatePressed: 0
+  thrust: 3
   PlayerRigidbody: {fileID: 1922431394}
