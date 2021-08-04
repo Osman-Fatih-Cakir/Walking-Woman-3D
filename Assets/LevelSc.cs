@@ -14,10 +14,23 @@ public class LevelSc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Constantly rotate object
-        for (int i = 0; i < transform.childCount; i++)
+        rotateObjects(transform.gameObject);
+    }
+
+    // Constantly rotate object
+    void rotateObjects(GameObject obj)
+    {
+        for (int i = 0; i < obj.transform.childCount; i++)
         {
-            transform.GetChild(i).transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+            GameObject child = obj.transform.GetChild(i).gameObject;
+            if (child.layer == 9 || child.layer == 10)
+            {
+                child.transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+            }
+            else
+            {
+                rotateObjects(child);
+            }
         }
     }
 }

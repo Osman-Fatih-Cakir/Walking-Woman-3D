@@ -107,6 +107,10 @@ public class LevelHandlerSc : MonoBehaviour
                 temp.transform.localPosition = new Vector3(0, 0, 0);
                 temp.transform.localScale = new Vector3(3.5F, 3.5F, 3.5F);
             }
+            else
+            {
+                set_level_assets(child);
+            }
         }
     }
 

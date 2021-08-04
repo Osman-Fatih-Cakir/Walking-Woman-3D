@@ -33,8 +33,8 @@ public class WomanSc : MonoBehaviour
         if (LHObject.GetComponent<LevelHandlerSc>().GameOn 
             && !LHObject.GetComponent<LevelHandlerSc>().GameOver) // If the game is on, the game is playable
         {
-            sinx = Mathf.Sin(Time.time) * 1.25f;
-            transform.position = new Vector3(ipos.x + sinx, transform.position.y, transform.position.z); // Move woman around x axis
+            //sinx = Mathf.Sin(Time.time) * 1.25f;
+            //transform.position = new Vector3(ipos.x + sinx, transform.position.y, transform.position.z); // Move woman around x axis
         }
     }
 
