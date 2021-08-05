@@ -11,9 +11,11 @@ public class WomanSc : MonoBehaviour
     public Vector3 endPos;
     public Quaternion endRot;
     public Vector3 endsca;
-    public int posScore = 100;
-    public int negScore = -100;
-
+    public float startWeight;
+    public int posScore = 4;
+    public int negScore = 12;
+    public GameObject manMeshRenderer;
+    private SkinnedMeshRenderer smr;
     private bool isAnimDone = true;    
     private Vector3 ipos;
     private Quaternion irot;
@@ -27,6 +29,7 @@ public class WomanSc : MonoBehaviour
         ipos = transform.position;
         irot = transform.rotation;
         isca = transform.localScale;
+        smr = manMeshRenderer.GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
@@ -56,7 +59,7 @@ public class WomanSc : MonoBehaviour
     {
         if (other.gameObject.layer == 9) // Negative object
         {
-            LHObject.GetComponent<LevelHandlerSc>().Point += negScore;
+            gain_weight();
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
 
         }
@@ -67,7 +70,7 @@ public class WomanSc : MonoBehaviour
                 StartCoroutine(WaitForAnim(1.8f));
                 anim.SetTrigger("happy"); // Happy animation
             }
-            LHObject.GetComponent<LevelHandlerSc>().Point += posScore;
+            lose_weight();
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
             StartCoroutine(Explode(transform.position));// Particle animation
         }
@@ -75,14 +78,15 @@ public class WomanSc : MonoBehaviour
         {
             finishLevel();
         }
-        Debug.Log("POINT: " + LHObject.GetComponent<LevelHandlerSc>().Point);
+        Debug.Log("POINT: " + smr.GetBlendShapeWeight(0));
     }
 
     IEnumerator ShrinkObject(GameObject obj, float time, float speed)
     {
         for (float cur = 0.0f; cur <= time; cur += (1.0f/60.0f))
         {
-            obj.transform.localScale -= new Vector3(speed, speed, speed);
+            if (obj)
+                obj.transform.localScale -= new Vector3(speed, speed, speed);
             yield return null;
         }
         Destroy(obj.gameObject);
@@ -113,9 +117,11 @@ public class WomanSc : MonoBehaviour
         transform.localScale = endsca;
 
         Debug.Log("Total Time: " + Time.timeSinceLevelLoad);
-
+        
+        LevelHandlerSc sc = LHObject.GetComponent<LevelHandlerSc>();
+        sc.weight = smr.GetBlendShapeWeight(0);
         // Start the animation
-        if (LHObject.GetComponent<LevelHandlerSc>().Point > 0) // Win 
+        if (sc.weight <= sc.winLimit) // Win 
         {
             anim.SetTrigger("win");
         }
@@ -123,6 +129,30 @@ public class WomanSc : MonoBehaviour
         {
             anim.SetTrigger("lose");
         }
-        LHObject.GetComponent<LevelHandlerSc>().EndLevel();
+        sc.weight = startWeight;
+        smr.SetBlendShapeWeight(0, startWeight);
+        sc.EndLevel();
+    }
+
+    // Gain weight
+    void gain_weight()
+    {
+        float num = smr.GetBlendShapeWeight(0);
+        num += negScore;
+        if (num > 100)
+            num = 100;
+        
+        smr.SetBlendShapeWeight(0, num);
+    }
+
+    // Lose weight
+    void lose_weight()
+    {
+        float num = smr.GetBlendShapeWeight(0);
+        num -= posScore;
+        if (num < 0)
+            num = 0;
+        
+        smr.SetBlendShapeWeight(0, num);
     }
 }

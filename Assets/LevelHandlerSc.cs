@@ -9,17 +9,19 @@ public class LevelHandlerSc : MonoBehaviour
     public bool GameOver = false;
     [HideInInspector]
     public bool GameFail = false;
+    public float winLimit = 20;
     public GameObject StartCanvasObj;
     public GameObject WinCanvasObj;
     public GameObject FailCanvasObj;
     public GameObject GameplayCanvasObj;
+    [HideInInspector]
+    public float weight = 30;
     public GameObject[] LEVELS;
     public GameObject[] HealtyFoods;
     public GameObject[] UnhealtyFoods;
     public GameObject cam;
     public GameObject PlayerObj;
     public GameObject WomanObj;
-    public int Point = 0;
     public int LevelCount = 7;
     private List<GameObject> Current_Levels = new List<GameObject>();
     private List<Vector3> Level_Positions = new List<Vector3>();
@@ -130,6 +132,7 @@ public class LevelHandlerSc : MonoBehaviour
         {
             int random = Random.Range(0, LEVELS.Length);
             GameObject temp = Instantiate(LEVELS[random], Level_Positions[i], Quaternion.identity);
+            set_level_assets(temp);
             Current_Levels.Add(temp);
         }
         
@@ -156,7 +159,7 @@ public class LevelHandlerSc : MonoBehaviour
         GameOver = true;
         GameplayCanvasObj.SetActive(false);
         // Open Game Over canvas
-        if (Point >= 0) // Win canvas
+        if (weight <= winLimit) // Win canvas
         {
             WinCanvasObj.SetActive(true);
         }
