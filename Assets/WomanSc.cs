@@ -46,15 +46,17 @@ public class WomanSc : MonoBehaviour
         transform.position = ipos;
         transform.rotation = irot;
         transform.localScale = isca;
-
-        anim.SetTrigger("run");
+        if(anim.gameObject.activeSelf)
+        {
+            anim.SetTrigger("run");
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9) // Negative object
         {
-            LHObject.GetComponent<LevelHandlerSc>().Point -= negScore;
+            LHObject.GetComponent<LevelHandlerSc>().Point += negScore;
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
 
         }
