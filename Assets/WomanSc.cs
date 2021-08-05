@@ -11,6 +11,8 @@ public class WomanSc : MonoBehaviour
     public Vector3 endPos;
     public Quaternion endRot;
     public Vector3 endsca;
+    public int posScore = 100;
+    public int negScore = -100;
 
     private bool isAnimDone = true;    
     private Vector3 ipos;
@@ -52,7 +54,7 @@ public class WomanSc : MonoBehaviour
     {
         if (other.gameObject.layer == 9) // Negative object
         {
-            LHObject.GetComponent<LevelHandlerSc>().Point -= 75;
+            LHObject.GetComponent<LevelHandlerSc>().Point -= negScore;
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
 
         }
@@ -63,7 +65,7 @@ public class WomanSc : MonoBehaviour
                 StartCoroutine(WaitForAnim(1.8f));
                 anim.SetTrigger("happy"); // Happy animation
             }
-            LHObject.GetComponent<LevelHandlerSc>().Point += 100;
+            LHObject.GetComponent<LevelHandlerSc>().Point += posScore;
             StartCoroutine(ShrinkObject(other.gameObject, 1.0f, 0.008f));
             StartCoroutine(Explode(transform.position));// Particle animation
         }

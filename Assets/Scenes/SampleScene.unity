@@ -3030,6 +3030,8 @@ MonoBehaviour:
   endPos: {x: 0, y: -0.6, z: 4.7}
   endRot: {x: 0, y: 180, z: 0, w: 0}
   endsca: {x: 0.6, y: 0.6, z: 0.6}
+  posScore: 100
+  negScore: -300
 --- !u!4 &1474213545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4d0174dfa757cda4c95ff1a4627f779b, type: 3}

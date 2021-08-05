@@ -7,6 +7,7 @@ public class LevelHandlerSc : MonoBehaviour
     public bool GameOn = false;
     [HideInInspector]
     public bool GameOver = false;
+    [HideInInspector]
     public bool GameFail = false;
     public GameObject StartCanvasObj;
     public GameObject WinCanvasObj;
